@@ -1,0 +1,204 @@
+<div ui-view="header"></div>
+<div ng-controller="rentHouseCtrl">
+
+	<div class="container subject jumbotron" style="padding-top: 10px">
+
+		<div class="container panel panel-success top" style="padding:0">
+
+			<div class="panel-heading">
+  				<h2>{{house.community}}
+				<br />
+  				<small>{{house.district}}</small>
+  				<button class="btn btn-success pull-right" ng-click="rent()" id="rentBtn">租赁</button>
+				<button class="btn btn-success pull-right" style="margin-right: 20px" ng-click="focus()" id="focusBtn">关注该房源</button>
+				<button class="btn btn-success pull-right" style="margin-right: 20px" ng-click="order()" id="orderBtn">预约看房</button>
+
+
+  				</h2>
+
+		    </div>
+
+			<div class="row panel-body" style="padding: 10px">
+				<div class="col-md-6">
+					<div class="thumbnail">
+				      <img ng-src="{{house.picUrl}}">
+				    </div>
+				</div>
+
+
+				<div class="col-md-6">
+					<div class="text-danger"><h1 class="text-danger">{{house.rentPrice}}元</h1></div>
+					<div class="container">
+						<h4>
+							<div class="row" style="padding-bottom:5px">
+								<span class="text-success">面积：</span>
+								<span class="text-info">{{house.area}}</span>
+
+								<span class="text-success col-md-offset-4">方式：</span>
+								<span class="text-info">{{house.type}}</span>	
+
+							</div>
+						</h4>
+						<h4>
+							<div class="row" style="padding-bottom:5px">
+								<span class="text-success">楼层：</span>
+								<span class="text-info">{{house.floor}}</span>
+
+								<span class="text-success col-md-offset-4">状态：</span>
+								<span class="text-info">{{house.status}}</span>
+							</div>
+						</h4>
+						<h4>
+							<div class="row" style="padding-bottom:5px">
+								<span class="text-success">地址：</span>
+								<span class="text-info">{{house.address}}</span>
+							</div>
+						</h4>
+						<h4>
+							<div class="row" style="padding-bottom:5px">
+								<span class="text-success">时间：</span>
+								<span class="text-info">{{house.date}}</span>
+							</div>
+						</h4>
+						<h4>
+							<div class="row" style="padding-bottom:5px">
+								<span class="text-success">户型：</span>
+								<span class="text-info">{{house.houseType}}</span>
+							</div>
+						</h4>
+
+					</div>
+
+					<hr style="margin: 10px 0">
+
+				</div>
+
+			</div>	
+
+		</div>
+
+		<div class="container panel panel-success top" style="padding:0">
+
+			<div class="panel-heading">
+  				<ul class="nav nav-pills">
+				  <li role="presentation" class="active" id="introli"><a href="">房源介绍</a></li>
+				  <li role="presentation" id="conli"><a href="javascript:;" ng-click="_scrollTo('contact')">联系经纪人</a></li>
+				  <li role="presentation" id="recli"><a href="javascript:;" ng-click="_scrollTo('record')">看房记录</a></li>
+				</ul>
+
+		    </div>
+
+			<div class="row panel-body" style="padding-left: 50px">
+				<div id="introduce">
+					<div class="page-header" style="margin-top: 0">
+	  					<h2>房源介绍</h2>
+					</div>
+					<h3>
+						<b>基本属性</b>
+					</h3>
+					<div id="line"></div>
+					<div style="margin-top: 30px;margin-bottom:50px">
+						<h4>
+							<span class="text-success">租赁方式：</span>
+							<span class="text-info">{{house.rentWay}}</span>
+
+<!-- 							<span class="text-success col-md-offset-3">租赁方式：</span>
+							<span class="text-info">{{house.size}}</span>
+
+							<span class="text-success col-md-offset-3">租赁方式：</span>
+							<span class="text-info">{{house.size}}</span> -->
+						</h4>
+					</div>
+
+					<h3>
+						<b>房源特色</b>
+					</h3>
+					<div id="line"></div>
+					<div style="margin-top: 30px">
+						<h4>
+							<span class="text-success">投资分析：</span>
+							<span class="text-info">{{house.analyze}}</span>
+						</h4>
+						<h4>
+							<span class="text-success">小区介绍：</span>
+							<span class="text-info">{{house.communityInfo}}</span>
+						</h4>
+					</div>
+
+
+				</div> <!-- introduce end -->
+			</div> <!-- body end -->
+
+			
+
+
+		</div>
+
+	<div class="container panel panel-success" style="padding:0">
+		<div class="row panel-body" style="padding-left: 50px">
+				<div id="contact">
+					<div class="page-header" style="margin-top: 0">
+		  				<h2>联系经纪人
+		  					<small class="col-md-offset-2">
+		  						您可以通过拨打电话或在线咨询的方式联系经纪人
+		  					</small>
+		  				</h2>
+					</div>
+
+					<div ng-repeat="agent in house.agentList">
+						<h4>
+							<span class="text-success">姓名：</span>
+							<span class="text-info">{{agent.name}}</span>
+
+							<span class="text-success col-md-offset-3">联系方式：</span>
+							<span class="text-info">{{agent.phone}}</span>
+
+						</h4>
+					</div>
+				</div> <!-- contact end -->
+				
+			</div>  <!-- body end -->
+			</div>
+
+<div class="container panel panel-success" style="padding:0">
+			<div class="row panel-body" style="padding-left: 50px">
+				<div id="record">
+					<div class="page-header" style="margin-top: 0">
+		  				<h2>看房记录</h2>
+					</div>
+					<div class="col-md-6">
+					<table class="table table-bordered">
+					  <thead>
+					    <tr>
+					      <th>带看时间</th>
+					      <th>带看经纪人</th>
+					      <th>咨询电话</th>
+					    </tr>
+
+					  </thead>
+					  	<tbody ng-repeat="record in house.records">
+						  
+						    <tr>
+						      <td>{{record.date}}</td>
+						      <td>{{record.name}}</td>
+						      <td>{{record.phone}}</td>
+						    </tr>
+						
+						</tbody>
+					</table>
+					</div>
+
+<!-- 				<div class="col-md-6">
+					总共带看1次
+				</div> -->
+				
+
+				</div> <!-- contact end -->
+				
+			</div>  <!-- body end -->
+</div>
+
+	</div>
+	
+</div>
+<div ui-router="footer"></div>

@@ -1,4 +1,4 @@
-var indexApp = angular.module("indexApp",['ui.router','loginApp','swxSessionStorage','buyApp']); 
+var indexApp = angular.module("indexApp",['ui.router','loginApp','swxSessionStorage','buyApp','sellApp']); 
 
 indexApp.run(function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
@@ -53,6 +53,97 @@ indexApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+      .state('buyHouse', {
+            url: '/buyHouse',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/buyHouse.html'
+                },
+                'header@buyHouse': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'footer@buyHouse': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      .state('rentHouse', {
+            url: '/rentHouse',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/rentHouse.html'
+                },
+                'header@rentHouse': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'footer@rentHouse': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      .state('sell', {
+            url: '/sell',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/sell.html'
+                },
+                'header@sell': {
+                    templateUrl: 'tpls/header_zero.html'
+                },
+                'content@sell': {
+                    templateUrl: 'tpls/sellOut.html'
+                },
+                'footer@sell': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      .state('rentOut', {
+            url: '/rentOut',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/sell.html'
+                },
+                'header@rentOut': {
+                    templateUrl: 'tpls/header_zero.html'
+                },
+                'content@rentOut': {
+                    templateUrl: 'tpls/rentOut.html'
+                },
+                'footer@rentOut': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      .state('upload', {
+            url: '/upload',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/upload.html'
+                },
+                'header@upload': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'footer@upload': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      .state('house', {
+            url: '/house',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/house.html'
+                },
+                'header@house': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'footer@house': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      
       
 });
 

@@ -1,0 +1,48 @@
+<div class="container-fluid jumbotron" style="padding: 10px" ng-controller="headerLiCtrl">
+		<div class="top">
+			<img src="./images/logo-green.png" class="col-md-offset-1">
+			<button class="btn btn-default" ui-sref="sell">我要卖房</button>
+			<button class="btn btn-success" ui-sref="rentOut">我要出租</button>
+		</div>
+		<div class="ad" style="text-align: center;margin-bottom: 30px">
+			<h2><b>发布出租房源</b></h2>
+			<span>8000+全国HomePlus门店·10万+全国经纪人·HomePlus倾情服务15年+</span>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row col-md-6 col-md-offset-3" ng-controller="rentOutCtrl">
+		<form enctype="multipart/form-data">
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">所在区域</span>
+			  <input type="text" class="form-control input-lg" placeholder="在广州哪个区" aria-describedby="basic-addon1" ng-model="house.district">
+			</div>
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">房屋小区</span>
+			  <input type="text" class="form-control input-lg" placeholder="请输入小区名" aria-describedby="basic-addon1" ng-model="house.community">
+			</div>
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">房屋地址</span>
+			  <input type="text" class="form-control input-lg" placeholder="楼栋号 单元号 门牌号" aria-describedby="basic-addon1" ng-model="house.address">
+			</div>
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">所在楼层</span>
+			  <input type="number" class="form-control input-lg" placeholder="在第几楼" aria-describedby="basic-addon1" ng-model="house.floor">
+			</div>
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">房屋面积</span>
+			  <input type="number" class="form-control input-lg" placeholder="房屋面积有多大(平方米)" aria-describedby="basic-addon1" ng-model="house.area">
+			</div>
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">房屋户型</span>
+			  <input type="text" class="form-control input-lg" placeholder="几室" aria-describedby="basic-addon1" ng-model="house.houseType">
+			</div>
+			<div class="input-group ingp">
+			  <span class="input-group-addon" id="basic-addon1">期望租金</span>
+			  <input type="number" class="form-control input-lg" placeholder="请输入您期望租出的价格(每月/元)" aria-describedby="basic-addon1" ng-model="house.rentPrice">
+			</div>
+			<button class="btn btn-lg btn-success btn-block" type="button" ng-click="rentOut()">下一步</button>
+		</form>
+
+	</div>
+</div>

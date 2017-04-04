@@ -23,7 +23,7 @@ loginApp.controller('loginCtrl',['$scope','$http','$state','$sessionStorage', fu
 		$http.get('http://localhost:8090/login/',{withCredentials: true,headers : h})
 			.success(function(response) {
 				//console.log(response); 
-				$sessionStorage.put('user', response,1);
+				$sessionStorage.put('user', response,30);
 				setTimeout(go, 500);
 				function go(){ 
 					$state.go('index', {}, { reload: true });
