@@ -1,0 +1,14 @@
+{
+  "name": "homecloud",
+  "version": "1.0.0",
+  "description": "The personal work of dade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dade",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.8.0"
+  }
+}

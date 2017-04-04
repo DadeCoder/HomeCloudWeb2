@@ -1,0 +1,16 @@
+*.log
+.idea/*
+*.iml
+*.ipr
+*.iws
+data/*
+logs/*
+*/.idea/*
+tmp_cv/*
+*.log
+*/target/
+MessageServer/*
+images/*
+bower_components/*
+lib/*
+node_modules/*
