@@ -1,5 +1,6 @@
+<div  ng-controller="topCtrl">
 <!-- Navigation -->
-		<nav class="navbar navbar-default navbar-fixed-top" ng-controller="topCtrl">
+		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header page-scroll">
@@ -17,8 +18,11 @@
 						<li class="hidden">
 							<a href="#page-top"></a>
 						</li>
-						<li>
+						<li ng-show="!auth">
 							<a class="page-scroll" ui-sref="info">经纪人登录</a>
+						</li>
+						<li ng-show="auth">
+							<a class="page-scroll" ui-sref="info">个人中心</a>
 						</li>
 						<li>
 							<a class="page-scroll" ui-sref="buy">买房</a>
@@ -365,3 +369,4 @@
 				</div>
 			</div>
 		</div>
+</div>

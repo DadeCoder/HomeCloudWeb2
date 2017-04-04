@@ -151,6 +151,13 @@ indexApp.config(function($stateProvider, $urlRouterProvider) {
 indexApp.controller('topCtrl', function($rootScope, $http, $location, $scope, $sessionStorage) {
 
 
+      // $scope.data = {           
+      //       doneCases:'',
+      //       rentHouses:'',
+      //       sellHouses:'',
+      //       users:''
+      // }
+
       $scope.auth = false;
 
       var user = $sessionStorage.get('user');
@@ -170,11 +177,11 @@ indexApp.controller('topCtrl', function($rootScope, $http, $location, $scope, $s
        url:'http://localhost:8090/api/general/getInfo/',
        method: 'get', 
       }).success(function(response){
-       //console.log("success!");
-       //console.log(response);
+       console.log("getInfo success!");
+       console.log(response);
        $scope.data = response;
       }).error(function(response){
-       //console.log("error");
+       console.log("getInfo error");
       });
 });
 
