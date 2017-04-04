@@ -1,0 +1,38 @@
+<div class="page-header" style="margin: 0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        <h2>HomePlus</h2>
+      </div>
+      <div class="col-md-2 pull-right">
+        <h2><small><a ui-sref="index">返回首页</a></small></h2>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="jumbotron" style="margin-bottom: 0">
+  <div class="container" ng-controller="loginCtrl">
+  <div class="row myCenter" style="margin-bottom: 180px">  
+    <div class="col-xs-6 col-md-4 col-center-block">  
+      <form class="form-signin" ng-submit="login()">  
+        <h2>请登录<div class="pull-right"><small><a ui-sref="register">注册</a></small></div></h2>
+        <label for="username" class="sr-only">手机号码</label>  
+        <input name="username" type="text" id="username" class="form-control" placeholder="手机号码" required autofocus style="margin-bottom: 10px"  ng-model="credentials.username">
+
+        <label for="inputPassword" class="sr-only">密码</label>  
+        <input ng-model="credentials.password" name="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required style="margin-bottom: 10px">  
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Login">登录</button> 
+      </form>  
+    </div>  
+  </div>      
+  </div>
+</div>
+
+<footer>
+  <div class="container text-center">
+    <p>Designed by <a ui-sref="index"><span>Dade</span></a></p>
+  </div>
+</footer>

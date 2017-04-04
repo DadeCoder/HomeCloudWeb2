@@ -1,0 +1,129 @@
+<div ui-view='header'></div>
+<div ng-controller="cdtCtrl">
+	<div class="container subject jumbotron" style="padding-top: 10px">
+		
+		<div class="container panel panel-success top" style="padding:0">
+
+			<div class="panel-heading">
+		        <h3 class="panel-title">全部售房</h3>
+		    </div>
+
+			<div class="row panel-body" style="padding: 10px">
+				<span style="margin-left: 30px">区域：
+					<a class="text-danger chose" id="d0" ng-click="gotCdt($event)" value="区域不限">不限</a>
+					<a class="chose" id="d1" ng-click="gotCdt($event)" value="天河">天河</a>
+					<a class="chose" id="d2" ng-click="gotCdt($event)" value="越秀">越秀</a>
+					<a class="chose" id="d3" ng-click="gotCdt($event)" value="荔湾">荔湾</a>
+					<a class="chose" id="d4" ng-click="gotCdt($event)" value="海珠">海珠</a>
+					<a class="chose" id="d5" ng-click="gotCdt($event)" value="番禺">番禺</a>
+					<a class="chose" id="d6" ng-click="gotCdt($event)" value="白云">白云</a>
+					<a class="chose" id="d7" ng-click="gotCdt($event)" value="黄埔">黄埔</a>
+					<a class="chose" id="d8" ng-click="gotCdt($event)" value="从化">从化</a>
+					<a class="chose" id="d9" ng-click="gotCdt($event)" value="增城">增城</a>
+					<a class="chose" id="d10" ng-click="gotCdt($event)" value="花都">花都</a>
+					<a class="chose" id="d11" ng-click="gotCdt($event)" value="萝岗">萝岗</a>
+					<a class="chose" id="d12" ng-click="gotCdt($event)" value="南沙">南沙</a>
+				</span>
+
+			</div>
+			<div class="row panel-body" style="padding: 10px">
+				<span style="margin-left: 30px">售价：
+					<a id="p0" ng-click="gotCdtP($event)" value="售价不限" class="text-danger chose">不限</a>
+					<a id="p1" ng-click="gotCdtP($event)" value="5000" class="chose">5000元以下</a>
+					<a id="p2" ng-click="gotCdtP($event)" value="5000-7000" class="chose">5000-7000元</a>
+					<a id="p3" ng-click="gotCdtP($event)" value="7000-10000" class="chose">7000-10000元</a>
+					<a id="p4" ng-click="gotCdtP($event)" value="10000-13000" class="chose">10000-13000元</a>
+					<a id="p5" ng-click="gotCdtP($event)" value="13000-15000" class="chose">13000-15000元</a>
+					<a id="p6" ng-click="gotCdtP($event)" value="15000-17000" class="chose">15000-17000元</a>
+					<a id="p7" ng-click="gotCdtP($event)" value="17000-20000" class="chose">17000-20000元</a>
+					<a id="p8" ng-click="gotCdtP($event)" value="20000" class="chose">20000元以上</a>
+					(单位：每平方米)
+				</span>
+			</div>
+			<div class="row panel-body" style="padding: 10px">
+				<span style="margin-left: 30px">面积：
+					<a id="s0" value="面积不限" ng-click="gotCdtS($event)" class="text-danger chose">不限</a>
+					<a id="s1" value="40" ng-click="gotCdtS($event)" class="chose">40平以下</a>
+					<a id="s2" value="40-60" ng-click="gotCdtS($event)" class="chose">40-60平</a>
+					<a id="s3" value="60-80" ng-click="gotCdtS($event)" class="chose">60-80平</a>
+					<a id="s4" value="80-100" ng-click="gotCdtS($event)" class="chose">80-100平</a>
+					<a id="s5" value="100-120" ng-click="gotCdtS($event)" class="chose">100-120平</a>
+					<a id="s6" value="120-144" ng-click="gotCdtS($event)" class="chose">120-144平</a>
+					<a id="s7" value="144" ng-click="gotCdtS($event)" class="chose">144平以上</a>
+				</span>
+			</div>
+			<div class="row panel-body" style="padding: 10px">
+				<span style="margin-left: 30px">房型：
+					<a id="t0" value="房型不限" ng-click="gotCdtT($event)" class="text-danger chose">不限</a>
+					<a id="t1" value="一室" ng-click="gotCdtT($event)" class="chose">一室</a>
+					<a id="t2" value="两室" ng-click="gotCdtT($event)" class="chose">两室</a>
+					<a id="t3" value="三室" ng-click="gotCdtT($event)" class="chose">三室</a>
+					<a id="t4" value="四室" ng-click="gotCdtT($event)" class="chose">四室</a>
+					<a id="t5" value="五室" ng-click="gotCdtT($event)" class="chose">五室</a>
+					<a id="t6" value="五室以上" ng-click="gotCdtT($event)" class="chose">五室以上</a>
+				</span>
+			</div>
+			<div class="row panel-body" style="padding: 10px">
+				<span style="margin-left: 30px">楼层：
+					<a id="f0" value="楼层不限" ng-click="gotCdtF($event)" class="text-danger chose">不限</a>
+					<a id="f1" value="低楼层" ng-click="gotCdtF($event)" class="chose">低楼层</a>
+					<a id="f2" value="中楼层" ng-click="gotCdtF($event)" class="chose">中楼层</a>
+					<a id="f3" value="高楼层" ng-click="gotCdtF($event)" class="chose">高楼层</a>
+				</span>
+			</div>
+
+			<div>
+				<div style="margin-left: 30px;margin-top: 30px">
+					<span ng-repeat="con in condition" style="font-size: 20px">
+						{{con}}
+					</span>
+				
+				<button class="btn btn-success btn-lg pull-right" style="margin-bottom: 20px;margin-right: 50px" ng-click="confirm()">确认</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="container panel panel-success mid" style="padding:0">
+			<div class="panel-heading">
+		        <h3 class="panel-title">共有{{hno}}套房源</h3>
+		    </div>
+		    <div ng-repeat="house in hlist">
+			    <div class="panel-body info">
+			        <div class="info-inner info-left col-md-3">
+			        	<a ng-click="getSellHouse(house.id)" class="thumbnail">
+	      					<!-- <img src="images/demo/portfolio-1.jpg"> -->
+	      					<img ng-src="{{house.picUrl}}">
+	    				</a>
+			        </div>
+			        <div class="info-inner info-mid col-md-6">
+			        	<h3><a ng-click="getSellHouse(house.id)">{{house.community}}</a></h3>
+			        	<b>{{house.address}} {{house.area}}平方米 {{house.houseType}}</b>
+			        	<br>
+			        	<br>
+			        	{{house.floor}}楼
+			        </div>
+			        <div class="info-inner info-right col-md-3">
+			        	<h2 class="text-danger">
+			        		{{house.sellPrice}}元
+			        	</h2>
+			        	<span>
+			        		{{house.date}}
+			        	</span>
+			        </div>
+			        <hr style="margin: 10px 0">
+			    </div>
+		    </div>
+
+			<div class="row">
+				<nav style="text-align: center;">
+					<pagination total-items="bigTotalItems" ng-change="showItems()" ng-model="bigCurrentPage" items-per-page="itemSize" max-size="maxSize" force-ellipses="true" class="pagination-sm" rotate="false" boundary-links="true" num-pages="numPages"></pagination>
+				</nav>
+			</div>
+				
+
+		</div>
+
+	</div>
+</div>
+<div ui-view="footer"></div>
