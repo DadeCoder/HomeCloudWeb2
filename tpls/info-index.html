@@ -1,0 +1,29 @@
+<div class="container" ng-controller="indexAllCtrl">
+	<div class="row" style="margin-bottom: 20px">
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active">
+		  	<a ui-sref="info">全部</a>
+		  </li>
+		  <li role="presentation">
+		  	<a ui-sref="info-index-up">升价</a>
+		  </li>
+		  <li role="presentation">
+		  	<a ui-sref="info-index-down">降价</a>
+		  </li>
+		</ul>
+	</div>
+	<div ng-repeat="house in ilist">
+		<div class="row well col-md-5" style="height: 250px;padding: 0 0">
+			<img ng-src="{{house.picUrl}}" style="height: 180px;margin-left: 100px;margin-top: 30px">		
+		</div>
+		<div class="row well col-md-4" style="height: 250px;font-size: 20px;text-align: center;">
+			<span class="text-danger">{{house.typeInfo}}</span><br />
+			<span class="text-success">区域：</span>{{house.district}}<br />
+			<span class="text-success">小区：</span>{{house.community}}<br />
+			<span class="text-success">地址：</span>{{house.address}}<br />
+			<span class="text-success">楼层：</span>{{house.floor}}<br />	
+			<span class="text-success" ng-bind="house.priceInfo"></span><br />
+			<button class="btn btn-success btn-block" ng-click="getRentHouse(house.id, house.onlineType)">前往</button>
+		</div>
+	</div>
+</div>

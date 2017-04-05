@@ -1,0 +1,47 @@
+<div class="panel panel-success" style="padding:0" ng-controller="agentSellCtrl">
+	<div class="panel-heading">
+        <h3 class="panel-title">共有{{hno}}套房屋待审</h3>
+    </div>
+    <div ng-repeat="house in list">
+	    <div class="panel-body info">
+	        <div class="info-inner info-left col-md-3">
+	        	<a ng-click="getSellHouse(house.id)" class="thumbnail">
+  					<img ng-src="{{house.picUrl}}">
+				</a>
+	        </div>
+	        <div class="info-inner info-mid col-md-6" style="text-align: center;">
+	        	<h3><a ng-click="getSellHouse(house.id)">{{house.community}}</a></h3>
+	        	<b>{{house.address}} {{house.area}}平方米 {{house.houseType}}</b>
+	        	<br>
+	        	<br>
+	        	{{house.floor}}楼
+	        	<h2 class="text-danger">
+	        		{{house.sellPrice}}元
+	        	</h2>
+	        	<span>
+	        		{{house.date}}
+	        	</span>
+	        </div>
+	        <div class="info-inner info-right col-md-3" style="margin-top: 50px">
+	        	<form>
+					<div class="form-group">
+						<button class="btn btn-danger btn-block" id="stopBtn" ng-click="denyAccess(house.id)">审核不通过</button>
+					</div>
+					<div class="form-group">
+						<!-- <input type="number" ng-model="new.price"> -->
+						<button class="btn btn-success btn-block" ng-click="passAccess(house.id)">审核通过</button>
+					</div>
+				</form>
+	        </div>
+	        <hr style="margin: 10px 0">
+	    </div>
+    </div>
+
+	<div class="row">
+		<nav style="text-align: center">
+			<pagination total-items="bigTotalItems" ng-change="showItems()" ng-model="bigCurrentPage" items-per-page="itemSize" max-size="maxSize" force-ellipses="true" class="pagination-sm" rotate="false" boundary-links="true" num-pages="numPages"></pagination>
+		</nav>
+	</div>
+		
+
+</div>

@@ -1,0 +1,40 @@
+<div class="container" ng-controller="dataSellCtrl">
+	<div class="row" style="margin-bottom: 20px">
+		<ul class="nav nav-tabs">
+			<li role="presentation"  class="active">
+		  		<a ui-sref="info-data-sell">房屋出售</a>
+		  	</li>
+		  <li role="presentation">
+		  	<a ui-sref="info-data-rent">房屋出租</a>
+		  </li>
+		  <li role="presentation">
+		  	<a ui-sref="info-data-nick">更改昵称</a>
+		  </li>
+		  <li role="presentation">
+		  	<a ui-sref="info-data-pwd">修改密码</a>
+		  </li>
+		</ul>
+	</div>
+	<div ng-repeat="house in hlist">
+		<div class="row well col-md-5" style="height: 180px;font-size: 20px;text-align: center;">
+			<span class="text-success">区域：</span>{{house.district}}<br />
+			<span class="text-success">小区：</span>{{house.community}}<br />
+			<span class="text-success">地址：</span>{{house.address}}<br />
+			<span class="text-success">楼层：</span>{{house.floor}}<br />	
+			<span class="text-success">价格：</span>{{house.sellPrice}}
+		</div>
+		<div class="row well col-md-4" style="height: 180px">
+			<form>
+				<div class="form-group">
+					<button class="btn btn-danger btn-block" id="stopBtn" ng-click="stopSell(house.id)">停止出售</button>
+				</div>
+				<div class="form-group">
+					<input type="number" ng-model="new.price">
+					<button class="btn btn-success" ng-click="newBtn(house.id)">提交新价格</button>
+				</div>
+			</form>
+
+		</div>
+		
+	</div>
+</div>

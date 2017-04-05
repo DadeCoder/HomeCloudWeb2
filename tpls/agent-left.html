@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+        <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+            <li class="active">
+                <a ui-sref="agent-index">
+                    <i class="glyphicon glyphicon-th-large"></i>
+                    首页         
+                </a>
+            </li>
+            <li>
+                <a data-target="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-cog"></i>
+                    系统审核
+                       <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                </a>
+                <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                    <li><a ui-sref="agent-rent-access"><i class="glyphicon glyphicon-user"></i>出租审核</a></li>
+                    <li><a ui-sref="agent-sell-access"><i class="glyphicon glyphicon-th-list"></i>卖房审核</a></li>
+                </ul>
+            </li>
+            <li>
+                <a ui-sref="agent-users">
+                    <i class="glyphicon glyphicon-credit-card"></i>
+                    人员管理        
+                </a>
+            </li>
+
+            <li>
+                <a data-target="#Record" class="nav-header collapsed" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-cog"></i>
+                    看房记录
+                       <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                </a>
+                <ul id="Record" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                    <li><a ui-sref="agent-rent-record"><i class="glyphicon glyphicon-user"></i>出租</a></li>
+                    <li><a ui-sref="agent-sell-record"><i class="glyphicon glyphicon-th-list"></i>出售</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a ui-sref="agent-data">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                    用户排行
+                </a>
+            </li>
+            <li>
+                <a ui-sref="agent-register">
+                    <i class="glyphicon glyphicon-fire"></i>
+                    经纪人注册
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

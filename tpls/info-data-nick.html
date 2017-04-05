@@ -1,0 +1,29 @@
+<div class="container" ng-controller="dataNickCtrl">
+	<div class="row" style="margin-bottom: 20px">
+		<ul class="nav nav-tabs">
+			<li role="presentation">
+		  		<a ui-sref="info-data-sell">房屋出售</a>
+		  	</li>
+		  <li role="presentation">
+		  	<a ui-sref="info-data-rent">房屋出租</a>
+		  </li>
+		  <li role="presentation" class="active">
+		  	<a ui-sref="info-data-nick">更改昵称</a>
+		  </li>
+		  <li role="presentation">
+		  	<a ui-sref="info-data-pwd">修改密码</a>
+		  </li>
+		</ul>
+	</div>
+	<div class="row">
+		<div style="padding: 100px 100px 10px;">
+		    <form class="bs-example bs-example-form col-md-4 col-md-offset-2" role="form">
+		        <div class="input-group input-group-lg" style="margin-bottom: 10px">
+		        	<span class="input-group-addon">{{user.old}}</span>
+		            <input type="text" class="form-control" ng-model="user.nick">
+		        </div>
+		        <button type="button" class="btn btn-info btn-lg btn-block"  ng-click="newNick()">保存修改</button>
+		    </form>
+		</div>
+	</div>
+</div>

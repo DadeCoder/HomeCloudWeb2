@@ -1,0 +1,49 @@
+<div class="panel panel-success" style="padding:0" ng-controller="agentRentRecordCtrl">
+	<div class="panel-heading">
+        <h3 class="panel-title">共有{{hno}}个用户</h3>
+    </div>
+    <div ng-repeat="house in list">
+	    <div class="panel-body info">
+	        <div class="info-inner info-left col-md-3">
+	        	<a ng-click="getSellHouse(house.id)" class="thumbnail">
+  					<img ng-src="{{house.picUrl}}">
+				</a>
+	        </div>
+	        <div class="info-inner info-mid col-md-6" style="text-align: center;">
+	        	<h2><span class="text-success">区域：</span>{{house.district}}</h2>
+	        	<br />
+	        	<span class="text-success">小区</span>{{house.community}}
+	        	<br />
+	        	<span class="text-success">地址</span>{{house.address}}
+	        	<br />
+	        	<span class="text-success">楼层</span>{{house.floor}}
+	        	<br />
+	        	<span class="text-success">户型</span>{{house.houseType}}
+	        	<br />
+	        	<span class="text-success">面积</span>{{house.area}}
+	        </div>
+	        <div class="info-inner info-right col-md-3" style="margin-top: 50px">
+	        	<form>
+					<div class="form-group">
+<!-- 						<button class="btn btn-danger btn-block" id="stopBtn" ng-click="delete(house.id)">删除用户</button> -->
+						 <span class="input-group-addon">带看时间</span>
+  						<input type="text" id="calendar1" class="form-control">
+					</div>
+					<div class="form-group">
+						<!-- <input type="number" ng-model="new.price"> -->
+						<button class="btn btn-success btn-block" ng-click="setDate(house.id)">确定提交</button>
+					</div>
+				</form>
+	        </div>
+	        <hr style="margin: 10px 0">
+	    </div>
+    </div>
+
+	<div class="row">
+		<nav style="text-align: center">
+			<pagination total-items="bigTotalItems" ng-change="showItems()" ng-model="bigCurrentPage" items-per-page="itemSize" max-size="maxSize" force-ellipses="true" class="pagination-sm" rotate="false" boundary-links="true" num-pages="numPages"></pagination>
+		</nav>
+	</div>
+		
+
+</div>

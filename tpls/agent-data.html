@@ -1,0 +1,35 @@
+<div ng-controller="agentDataCtrl">
+    <div class="row">
+        <div class="panel panel-success">
+          <div class="panel-heading">排行</div>
+              <table class="table">
+                    <thead>
+                        <tr>
+                          <th>姓名</th>
+                          <th>总量</th>
+                          <th>售卖房屋</th>
+                          <th>出租房屋</th>
+                          <th>购买房屋</th>
+                          <th>租赁房屋</th>
+                        </tr>
+                      </thead>
+                      <tbody ng-repeat="house in list">
+                            <tr>
+                                <th>{{house.purchaser.name}}</th>
+                                <th>{{house.all}}</th>
+                                <th>{{house.sellOut}}</th>
+                                <th>{{house.rentOut}}</th>
+                                <th>{{house.sell}}</th>
+                                <th>{{house.rent}}</th>
+                            </tr>
+                      </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row">
+        <nav style="text-align: center">
+            <pagination total-items="bigTotalItems" ng-change="showItems()" ng-model="bigCurrentPage" items-per-page="itemSize" max-size="maxSize" force-ellipses="true" class="pagination-sm" rotate="false" boundary-links="true" num-pages="numPages">
+            </pagination>
+        </nav>
+    </div>
+</div>

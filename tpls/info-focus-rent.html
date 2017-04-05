@@ -1,0 +1,24 @@
+<div class="container" ng-controller="focusRentCtrl">
+	<div class="row" style="margin-bottom: 20px">
+		<ul class="nav nav-pills">
+		  <li>
+		    <a ui-sref="info-focus-buy">买房</a>
+		  </li>
+		  <li><a ui-sref="info-focus-sell">卖房</a></li>
+		  <li class="active"><a ui-sref="info-focus-rent">租房</a></li>
+		  <li><a ui-sref="info-focus-rentOut">出租</a></li>
+		</ul>
+	</div>
+	<div ng-repeat="house in hlist">
+		<div class="row well col-md-5" style="height: 220px;padding: 0 0">
+			<img ng-src="{{house.picUrl}}" style="height: 180px;margin-left: 100px;margin-top: 20px">		</div>
+		<div class="row well col-md-4" style="height: 220px;font-size: 20px;text-align: center;">
+			<span class="text-success">区域：</span>{{house.district}}<br />
+			<span class="text-success">小区：</span>{{house.community}}<br />
+			<span class="text-success">地址：</span>{{house.address}}<br />
+			<span class="text-success">楼层：</span>{{house.floor}}<br />	
+			<span class="text-success">租金：</span>{{house.rentPrice}}<br />
+			<button class="btn btn-success btn-block" ng-click="getRentHouse(house.id)">前往</button>
+		</div>
+	</div>
+</div>
