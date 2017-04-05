@@ -1,8 +1,20 @@
 var indexApp = angular.module("indexApp",['ui.router','loginApp','swxSessionStorage','buyApp','sellApp','infoApp','agentApp']); 
 
-indexApp.run(function($rootScope, $state, $stateParams) {
+indexApp.run(function($rootScope, $state, $stateParams, $sessionStorage,$location) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+
+    $rootScope.$on('$stateChangeStart', 
+      function (event, toState, toParams, fromState, fromParams) {          
+            if (!(toState.name == "index" || toState.name == "login" || toState.name == "agent-login")) {
+                  // console.log(toState.name);
+                  // console.log(typeof(toState.name));
+                  // $state.go('login');
+                  $location.path('/login');
+            }
+    });
+    
+
 });
 
 indexApp.config(function($stateProvider, $urlRouterProvider) {
