@@ -17,7 +17,18 @@ indexApp.run(function($rootScope, $state, $stateParams, $sessionStorage,$locatio
 
 });
 
-indexApp.config(function($stateProvider, $urlRouterProvider) {
+indexApp.factory("httpInterceptor", ["$rootScope", "$location", function($rootScope, $location) {
+        return {
+            "responseError": function(response) {
+                  console.log("interceptors");
+                  $location.path('/login');
+             }
+        };
+    }]);
+
+indexApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+
+      $httpProvider.interceptors.push("httpInterceptor");
 
     $urlRouterProvider.otherwise('/index');
     $stateProvider
