@@ -188,10 +188,10 @@ infoApp.controller('focusBuyCtrl',['$scope','$http','$state','$sessionStorage', 
         console.log(houseId);
         //$window.localStorage["rentHouseId"]=houseId;
         //$window.location.href='../buyHouse.html';
-        $sessionStorage.put("rentHouseId", houseId);
+        $sessionStorage.put("buyHouseId", houseId);
         	setTimeout(go, 500);
 			function go(){ 
-				$state.go('rentHouse', {}, { reload: true });
+				$state.go('buyHouse', {}, { reload: true });
 			} 
     }
 
@@ -218,10 +218,10 @@ infoApp.controller('focusRentCtrl',['$scope','$http','$state','$sessionStorage',
         console.log(houseId);
         //$window.localStorage["rentHouseId"]=houseId;
         //$window.location.href='../rentHouse.html';
-        $sessionStorage.put("buyHouseId", houseId);
+        $sessionStorage.put("rentHouseId", houseId);
         	setTimeout(go, 500);
 			function go(){ 
-				$state.go('buyHouse', {}, { reload: true });
+				$state.go('rentHouse', {}, { reload: true });
 			} 
     }
 
@@ -234,15 +234,29 @@ infoApp.controller('focusSellCtrl',['$scope','$http','$state','$sessionStorage',
          method: 'get',  
          withCredentials: true
         }).success(function(response){
-         console.log("success!");
-         // console.log(response);
+         console.log("focusSellCtrl success!");
+        //console.log(response);
          $scope.hlist = response;
         }).error(function(response){
          console.log("error");
         });
     };
 
+    $scope.access = false;
     getData();
+
+    
+
+    $scope.getSellHouse = function(houseId){
+        console.log(houseId);
+        //$window.localStorage["rentHouseId"]=houseId;
+        //$window.location.href='../buyHouse.html';
+        $sessionStorage.put("buyHouseId", houseId);
+            setTimeout(go, 500);
+            function go(){ 
+                $state.go('buyHouse', {}, { reload: true });
+            } 
+    }
 
 }]);
 
@@ -262,6 +276,17 @@ infoApp.controller('focusRentOutCtrl',['$scope','$http','$state','$sessionStorag
     };
 
     getData();
+
+    $scope.getRentOutHouse = function(houseId){
+        console.log(houseId);
+        //$window.localStorage["rentHouseId"]=houseId;
+        //$window.location.href='../buyHouse.html';
+        $sessionStorage.put("buyHouseId", houseId);
+            setTimeout(go, 500);
+            function go(){ 
+                $state.go('buyHouse', {}, { reload: true });
+            } 
+    }
 
 }]);
 
@@ -374,6 +399,51 @@ infoApp.controller('dataNickCtrl',['$scope','$http','$state','$sessionStorage', 
 
       }
 
+}]);
+
+
+infoApp.controller('dataBuyCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
+    $scope.new = {
+            price:''
+        }
+
+        getData = function(){
+            $http({
+             url:'http://localhost:8090/api/purchaser/getBuy/',
+             method: 'get',  
+             withCredentials: true
+            }).success(function(response){
+             console.log("getBuy success!", response);
+             $scope.hlist = response;
+            }).error(function(response){
+             console.log("error");
+            });
+        };
+
+        getData();
+      
+}]);
+
+infoApp.controller('dataRentedCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
+    $scope.new = {
+            price:''
+        }
+
+        getData = function(){
+            $http({
+             url:'http://localhost:8090/api/purchaser/getRented/',
+             method: 'get',  
+             withCredentials: true
+            }).success(function(response){
+             console.log("success!");
+             $scope.hlist = response;
+            }).error(function(response){
+             console.log("error");
+            });
+        };
+
+        getData();
+      
 }]);
 
 infoApp.controller('dataSellCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){

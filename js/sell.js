@@ -375,6 +375,20 @@ sellApp.controller('viewCtrl',['$scope','$http','$state', '$sessionStorage', fun
 
       }
 
+       $scope._scrollTo = function(id){
+        var _id = document.getElementById(id);
+　　　　window.scrollTo(0,_id.offsetTop);
+
+        var introli = document.getElementById("introli");
+        var conli = document.getElementById("conli");
+        var recli = document.getElementById("recli");
+        removeClass(introli,"active");
+        removeClass(conli,"active");
+        removeClass(recli,"active");
+        addClass( _id,"active" ); 
+
+      }
+
 }]);
 
 

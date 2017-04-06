@@ -12,12 +12,12 @@ agentApp.controller('agentLoginCtrl',['$scope','$http','$state','$sessionStorage
 		console.log(hash);
 		console.log(h);
 
-		$http.get('http://localhost:8090/agent_login/',{headers : h})
+		$http.get('http://localhost:8090/agent_login/',{withCredentials: true,headers : h})
 			.success(function(response) {
-				console.log(response);
-				// $window.location.href='/test_spring_sec.html'; 
-				//$window.location.href='./index.html'; 
-				$state.go('agent-index', {}, { reload: true });
+				console.log("agent_login", response);
+                $sessionStorage.put('user',response);
+                $state.go('agent-index', {}, { reload: true });
+				
 			})
 			.error(function(response) {
 				alert("Wrong account or password"); 

@@ -18,17 +18,18 @@
 		</div>
 	</div> -->
 	<div ng-repeat="house in hlist">
-		<div class="row well col-md-5" style="height: 220px;padding: 0 0">
-			<img ng-src="{{house.picUrl}}" style="height: 180px;margin-left: 100px;margin-top: 20px">		
+		<div class="row well col-md-5" style="height: 280px;padding: 0 0;text-align: center;">
+			<img ng-src="{{house.picUrl}}" style="height: 180px;margin-top: 20px">		
 		</div>
-		<div class="row well col-md-4" style="height: 220px;font-size: 20px;text-align: center;">
+		<div class="row well col-md-4" style="height: 280px;font-size: 20px;text-align: center;">
 			<span class="text-success">区域：</span>{{house.district}}<br />
 			<span class="text-success">小区：</span>{{house.community}}<br />
 			<span class="text-success">地址：</span>{{house.address}}<br />
 			<span class="text-success">楼层：</span>{{house.floor}}<br />	
 			<span class="text-success">价格：</span>{{house.sellPrice}}<br />
 			<span class="text-success">状态：</span>{{house.status}}<br />
-			<span class="text-success">理由：</span>{{house.denyInfo}}<br />
+			<span ng-show="'未通过审核' == house.status" class="text-success">理由：</span>{{house.denyInfo}}<br />
+			<button ng-show="'通过审核'==house.status" class="btn btn-success btn-block" ng-click="getSellHouse(house.id)">前往</button>
 		</div>
 	</div>
 </div>

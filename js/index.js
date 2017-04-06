@@ -6,7 +6,9 @@ indexApp.run(function($rootScope, $state, $stateParams, $sessionStorage,$locatio
 
     $rootScope.$on('$stateChangeStart', 
       function (event, toState, toParams, fromState, fromParams) {          
-            if (!(toState.name == "index" || toState.name == "login" || toState.name == "agent-login")) {
+            var user = $sessionStorage.get('user');
+            console.log('user',user);
+            if (typeof(user) == 'undefined' && !(toState.name == "index" || toState.name == "login" || toState.name == "agent-login")) {
                   // console.log(toState.name);
                   // console.log(typeof(toState.name));
                   // $state.go('login');
@@ -17,18 +19,18 @@ indexApp.run(function($rootScope, $state, $stateParams, $sessionStorage,$locatio
 
 });
 
-indexApp.factory("httpInterceptor", ["$rootScope", "$location", function($rootScope, $location) {
-        return {
-            "responseError": function(response) {
-                  console.log("interceptors");
-                  $location.path('/login');
-             }
-        };
-    }]);
+// indexApp.factory("httpInterceptor", ["$rootScope", "$location", function($rootScope, $location) {
+//         return {
+//             "responseError": function(response) {
+//                   console.log("interceptors", response);
+//                   $location.path('/login');
+//              }
+//         };
+//     }]);
 
 indexApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
-      $httpProvider.interceptors.push("httpInterceptor");
+      //$httpProvider.interceptors.push("httpInterceptor");
 
     $urlRouterProvider.otherwise('/index');
     $stateProvider
@@ -350,6 +352,40 @@ indexApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
                 },
                 'right@info-data-sell': {
                     templateUrl: 'tpls/info-data-sell.html'
+                }
+            }
+        })
+      .state('info-data-buy', {
+            url: '/info-data-buy',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/info.html'
+                },
+                'header@info-data-buy': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'left@info-data-buy': {
+                    templateUrl: 'tpls/left.html'
+                },
+                'right@info-data-buy': {
+                    templateUrl: 'tpls/info-data-buy.html'
+                }
+            }
+        })
+      .state('info-data-rented', {
+            url: '/info-data-rented',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/info.html'
+                },
+                'header@info-data-rented': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'left@info-data-rented': {
+                    templateUrl: 'tpls/left.html'
+                },
+                'right@info-data-rented': {
+                    templateUrl: 'tpls/info-data-rented.html'
                 }
             }
         })

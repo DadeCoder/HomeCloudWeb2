@@ -544,7 +544,7 @@ buyApp.controller('buyHouseCtrl',['$scope','$http','$state', '$sessionStorage', 
              withCredentials: true
             }).success(function(response){
              console.log("success!");
-             alert("success");
+             alert("购买成功！");
                   var pid = document.getElementById("buyBtn");
                   addClass( pid,"disabled" ); 
             }).error(function(response){
@@ -719,7 +719,7 @@ buyApp.controller('rentHouseCtrl',['$scope','$http','$state', '$sessionStorage',
              withCredentials: true
             }).success(function(response){
              console.log("success!");
-             alert("success");
+             alert("租赁成功！");
                   var pid = document.getElementById("rentBtn");
                   addClass( pid,"disabled" ); 
             }).error(function(response){

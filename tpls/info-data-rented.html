@@ -1,16 +1,16 @@
-<div class="container" ng-controller="dataSellCtrl">
+<div class="container" ng-controller="dataRentedCtrl">
 	<div class="row" style="margin-bottom: 20px">
 		<ul class="nav nav-tabs">
-			<li role="presentation"  class="active">
+			<li role="presentation">
 		  		<a ui-sref="info-data-sell">房屋出售</a>
 		  	</li>
-		  <li role="presentation">
+		  <li role="presentation"> 
 		  	<a ui-sref="info-data-rent">房屋出租</a>
 		  </li>
 		  <li role="presentation">
 		  	<a ui-sref="info-data-buy">已买房屋</a>
 		  </li>
-		  <li role="presentation">
+		  <li role="presentation" class="active">
 		  	<a ui-sref="info-data-rented">已租房屋</a>
 		  </li>
 		  <li role="presentation">
@@ -22,17 +22,17 @@
 		</ul>
 	</div>
 	<div ng-repeat="house in hlist">
-		<div class="row well col-md-5" style="height: 180px;font-size: 20px;text-align: center;">
+		<div class="row well col-md-9" style="height: 180px;font-size: 20px;text-align: center;">
 			<span class="text-success">区域：</span>{{house.district}}<br />
 			<span class="text-success">小区：</span>{{house.community}}<br />
 			<span class="text-success">地址：</span>{{house.address}}<br />
 			<span class="text-success">楼层：</span>{{house.floor}}<br />	
-			<span class="text-success">价格：</span>{{house.sellPrice}}
+			<span class="text-success">价格：</span>{{house.rentPrice}}
 		</div>
-		<div class="row well col-md-4" style="height: 180px">
+<!-- 		<div class="row well col-md-4" style="height: 180px">
 			<form>
 				<div class="form-group">
-					<button class="btn btn-danger btn-block" id="stopBtn" ng-click="stopSell(house.id)">停止出售</button>
+					<button class="btn btn-danger btn-block" id="stopBtn" ng-click="stopRent(house.id)">停止出租</button>
 				</div>
 				<div class="form-group">
 					<input type="number" ng-model="new.price">
@@ -40,7 +40,7 @@
 				</div>
 			</form>
 
-		</div>
+		</div> -->
 		
 	</div>
 </div>

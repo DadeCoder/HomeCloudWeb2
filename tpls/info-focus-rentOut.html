@@ -28,7 +28,8 @@
 			<span class="text-success">楼层：</span>{{house.floor}}<br />	
 			<span class="text-success">价格：</span>{{house.rentPrice}}<br />
 			<span class="text-success">状态：</span>{{house.status}}<br />
-			<span class="text-success">理由：</span>{{house.denyInfo}}<br />
+			<span ng-show="'未通过审核' == house.status" class="text-success">理由：</span>{{house.denyInfo}}<br />
+			<button ng-show="'通过审核'==house.status" class="btn btn-success btn-block" ng-click="getRentOutHouse(house.id)">前往</button>
 		</div>
 	</div>
 </div>
