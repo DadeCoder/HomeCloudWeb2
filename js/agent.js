@@ -1,5 +1,16 @@
 var agentApp = angular.module("agentApp",['ui.router']); 
 
+agentApp.controller('agentHeaderCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
+    $scope.logout = function() {
+
+        $sessionStorage.remove('user');
+        $state.go('index', {}, { reload: true });
+
+    };
+
+}]);
+
+
 agentApp.controller('agentLoginCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
 	$scope.login = function() {
 
@@ -499,10 +510,13 @@ agentApp.controller('agentSellRecordCtrl',['$scope','$http','$state','$sessionSt
      console.log("error");
     });
 
-    $scope.setDate = function(houseId){
-        console.log(houseId);
+    $scope.setDate = function(house){
+        console.log(house);
+        var houseId = house.id;
         // console.log($scope.h.date);
-        var result1 = $("#calendar1").val(); 
+        // var result1 = $("#checkDate").val(); 
+        var result1 = house.checkDate;  
+        console.log("date: ",house.checkDate);
         $http({
          url:'http://localhost:8090/api/agent/setDate/',
          method: 'get',
@@ -513,7 +527,7 @@ agentApp.controller('agentSellRecordCtrl',['$scope','$http','$state','$sessionSt
          withCredentials: true
         }).success(function(response){
          console.log("success!");
-         $("#calendar1").val("");
+         house.checkDate = '';
         toastr.success("添加成功");
 
         }).error(function(response){

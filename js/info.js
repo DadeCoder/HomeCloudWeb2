@@ -367,6 +367,12 @@ infoApp.controller('dataNickCtrl',['$scope','$http','$state','$sessionStorage', 
              $scope.user = {
                 old : response
              }
+             var user = $sessionStorage.get('user');
+             // console.log(user);
+             user.name = response;
+             // console.log(user);
+             $sessionStorage.put('user', user);
+
             }).error(function(response){
              console.log("error");
             });
@@ -384,15 +390,20 @@ infoApp.controller('dataNickCtrl',['$scope','$http','$state','$sessionStorage', 
                },
              withCredentials: true
             }).success(function(response){
-             console.log("success!");
+             console.log("newNick success!", response);
              if (response == 'true') {
                  getData();
+
             }else{
+                // console.log("该名称已存在！")
                 alert("该名称已存在！");
             }
+            var temp = $scope.user.old;
              $scope.user = {
-                    nick : ''
+                    nick : '',
+                    old : temp
                  }
+            window.location.reload();
             }).error(function(response){
              console.log("error");
             });

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="agentHeaderCtrl">
 	<div class="row">
 		<nav class="navbar navbar-static-top navbar-inverse" role="navigation">
 			<div class="container-fluid">
@@ -6,7 +6,7 @@
 					 <a class="navbar-brand" ui-sref="agent-index">后台管理系统</a>
 				</div>
 				<div class="navbar-header pull-right" style="margin-left: 100px">
-					 <a class="navbar-brand pull-right" ui-sref="index">退出</a>
+					 <a class="navbar-brand pull-right" ng-click="logout()">退出</a>
 				</div>
 				
 			</div>

@@ -27,11 +27,11 @@
 					<div class="form-group">
 <!-- 						<button class="btn btn-danger btn-block" id="stopBtn" ng-click="delete(house.id)">删除用户</button> -->
 						 <span class="input-group-addon">带看时间</span>
-  						<input type="text" id="calendar1" class="form-control">
+  						<input type="text" id="checkDate" class="form-control" ng-model="house.checkDate">
 					</div>
 					<div class="form-group">
 						<!-- <input type="number" ng-model="new.price"> -->
-						<button class="btn btn-success btn-block" ng-click="setDate(house.id)">确定提交</button>
+						<button class="btn btn-success btn-block" ng-click="setDate(house)">确定提交</button>
 					</div>
 				</form>
 	        </div>

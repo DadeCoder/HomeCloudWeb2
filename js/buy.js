@@ -489,6 +489,20 @@ buyApp.controller('buyHouseCtrl',['$scope','$http','$state', '$sessionStorage', 
 	removeClass(sell,"active");
 	addClass( buy,"active" ); 
 
+	toastr.options = {
+        "closeButton": false, //是否显示关闭按钮
+        "debug": false, //是否使用debug模式
+        "positionClass": "toast-top-center",//弹出窗的位置
+        "showDuration": "300",//显示的动画时间
+        "hideDuration": "1000",//消失的动画时间
+        "timeOut": "2000", //展现时间
+        "extendedTimeOut": "1000",//加长展示时间
+        "showEasing": "swing",//显示时的动画缓冲方式
+        "hideEasing": "linear",//消失时的动画缓冲方式
+        "showMethod": "fadeIn",//显示时的动画方式
+        "hideMethod": "fadeOut" //消失时的动画方式
+        };
+
 	function hasClass( elements,cName ){ 
 		return !!elements.className.match( new RegExp( "(\\s|^)" + cName + "(\\s|$)") ); 
 		// ( \\s|^ ) 判断前面是否有空格 （\\s | $ ）判断后面是否有空格 两个感叹号为转换为布尔值 以方便做判断 
@@ -544,9 +558,17 @@ buyApp.controller('buyHouseCtrl',['$scope','$http','$state', '$sessionStorage', 
              withCredentials: true
             }).success(function(response){
              console.log("success!");
-             alert("购买成功！");
-                  var pid = document.getElementById("buyBtn");
-                  addClass( pid,"disabled" ); 
+             toastr.success("购买成功！");
+             // alert("购买成功！"); 
+             var pid = document.getElementById("buyBtn");
+             addClass( pid,"disabled" ); 
+
+             setTimeout(go, 1000);
+             function go(){
+             	$state.go('info-data-buy', {}, { reload: true });
+             }
+
+
             }).error(function(response){
              console.log("error");
             });
@@ -708,6 +730,21 @@ buyApp.controller('rentHouseCtrl',['$scope','$http','$state', '$sessionStorage',
        console.log(response);
       });
 
+
+      toastr.options = {
+        "closeButton": false, //是否显示关闭按钮
+        "debug": false, //是否使用debug模式
+        "positionClass": "toast-top-center",//弹出窗的位置
+        "showDuration": "300",//显示的动画时间
+        "hideDuration": "1000",//消失的动画时间
+        "timeOut": "2000", //展现时间
+        "extendedTimeOut": "1000",//加长展示时间
+        "showEasing": "swing",//显示时的动画缓冲方式
+        "hideEasing": "linear",//消失时的动画缓冲方式
+        "showMethod": "fadeIn",//显示时的动画方式
+        "hideMethod": "fadeOut" //消失时的动画方式
+        };
+
       $scope.rent = function(){
             console.log(houseId);
             $http({
@@ -719,9 +756,16 @@ buyApp.controller('rentHouseCtrl',['$scope','$http','$state', '$sessionStorage',
              withCredentials: true
             }).success(function(response){
              console.log("success!");
-             alert("租赁成功！");
+             // alert("租赁成功！");
+              toastr.success("租赁成功！");
                   var pid = document.getElementById("rentBtn");
                   addClass( pid,"disabled" ); 
+
+                  setTimeout(go, 1000);
+	             function go(){
+	             	$state.go('info-data-rented', {}, { reload: true });
+	             }
+                  
             }).error(function(response){
              console.log("error");
             });
