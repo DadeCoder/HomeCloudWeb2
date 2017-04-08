@@ -281,10 +281,10 @@ infoApp.controller('focusRentOutCtrl',['$scope','$http','$state','$sessionStorag
         console.log(houseId);
         //$window.localStorage["rentHouseId"]=houseId;
         //$window.location.href='../buyHouse.html';
-        $sessionStorage.put("buyHouseId", houseId);
+        $sessionStorage.put("rentHouseId", houseId);
             setTimeout(go, 500);
             function go(){ 
-                $state.go('buyHouse', {}, { reload: true });
+                $state.go('rentHouse', {}, { reload: true });
             } 
     }
 
