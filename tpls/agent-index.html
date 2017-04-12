@@ -1,7 +1,16 @@
 <!-- <div class="container"> --> 
 	<!-- <div class="row col-md-offset-3"> -->
-	<div>
-		<h2 class="text-success" style="margin-left: 300px">欢迎来到HomeCloud后台管理系统</h2>
+	<div ng-controller="agentIndexCtrl">
+		<h1 class="text-success" style="margin-left: 300px;margin-bottom: 100px">欢迎来到HomeCloud后台管理系统</h1>
+		 <div class="col-md-6" style="padding-left: 200px">
+  			<img ng-src="{{agent.url}}">
+	     </div>
+	        <div class="info-inner info-mid col-md-6" style="padding-left: 0;margin-left: 0">
+	        	<h3><span class="text-success">欢迎您，</span>{{agent.name}}</h3>
+	        	<br />
+	        	<h3><span class="text-success">电话号码：</span>{{agent.phoneNumber}}</h3>
+	        	<br />
+	        </div>
 	</div>
 	<!-- </div> -->
 <!-- </div>

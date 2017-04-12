@@ -13,6 +13,20 @@ agentApp.controller('agentHeaderCtrl',['$scope','$http','$state','$sessionStorag
 
 }]);
 
+agentApp.controller('agentIndexCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
+    
+    var user = $sessionStorage.get('user');
+
+    $scope.agent = {
+        name:user.name,
+        phoneNumber:user.phoneNumber,
+        url:"http://localhost:8089/"+user.imageHeaderUrl
+    }
+
+    // console.log()
+
+}]);
+
 
 agentApp.controller('agentLoginCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
 	$scope.login = function() {
