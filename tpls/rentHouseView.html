@@ -1,6 +1,6 @@
 <div ui-view="header"></div>
-<div ng-controller="rentHouseCtrl">
 
+<div ng-controller="rentHouseViewCtrl">
 	<div class="container subject jumbotron" style="padding-top: 10px">
 
 		<div class="container panel panel-success top" style="padding:0">
@@ -8,11 +8,8 @@
 			<div class="panel-heading">
   				<h2>{{house.community}}
 				<br />
-  				<small>{{house.district}}</small>
-  				<button class="btn btn-success pull-right" ng-click="rent()" id="rentBtn">租赁</button>
-				<button class="btn btn-success pull-right" style="margin-right: 20px" ng-click="focus()" id="focusBtn">关注该房源</button>
-				<button class="btn btn-success pull-right" style="margin-right: 20px" ng-click="order()" id="orderBtn">预约看房</button>
-
+  				<small>{{house.district}}区</small>
+				<!-- <button class="btn btn-success pull-right" ng-click="focus()" id="focusBtn">关注该房源</button> -->
 
   				</h2>
 
@@ -21,7 +18,7 @@
 			<div class="row panel-body" style="padding: 10px">
 				<div class="col-md-6">
 					<div class="thumbnail">
-				      <img ng-src="{{house.picUrl}}">
+				      <img ng-src="{{picUrl}}">
 				    </div>
 				</div>
 
@@ -44,7 +41,7 @@
 								<span class="text-success">楼层：</span>
 								<span class="text-info">{{house.floor}}楼</span>
 
-								<span class="text-success col-md-offset-5">&nbsp; 状态：</span>
+								<span class="text-success col-md-offset-5">&nbsp;&nbsp;状态：</span>
 								<span class="text-info">{{house.status}}</span>
 							</div>
 						</h4>
@@ -79,7 +76,7 @@
 
 		<div class="container panel panel-success top" style="padding:0">
 
-			<div class="panel-heading">
+			<div class="panel-heading"> 
   				<ul class="nav nav-pills">
 				  <li role="presentation" class="active" id="introli"><a href="">房源介绍</a></li>
 				  <li role="presentation" id="conli"><a href="javascript:;" ng-click="_scrollTo('contact')">联系经纪人</a></li>
@@ -100,7 +97,7 @@
 					<div style="margin-top: 30px;margin-bottom:50px">
 						<h4>
 							<span class="text-success">租赁方式：</span>
-							<span class="text-info">{{house.rentWay}}</span>
+							<span class="text-info"></span>
 
 <!-- 							<span class="text-success col-md-offset-3">租赁方式：</span>
 							<span class="text-info">{{house.size}}</span>
@@ -176,13 +173,13 @@
 					    </tr>
 
 					  </thead>
-					  	<tbody ng-repeat="record in house.records">
+					  	<tbody>
 						  
-						    <tr>
-						      <td>{{record.date}}</td>
-						      <td>{{record.name}}</td>
-						      <td>{{record.phone}}</td>
-						    </tr>
+<!-- 						    <tr>
+						      <td>2017/3/10</td>
+						      <td>{{house.agentList[0].name}}</td>
+						      <td>{{house.agentList[0].phone}}</td>
+						    </tr> -->
 						
 						</tbody>
 					</table>
@@ -199,6 +196,8 @@
 </div>
 
 	</div>
+
 	
 </div>
-<div ui-router="footer"></div>
+
+<div ui-view="footer"></div>

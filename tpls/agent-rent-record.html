@@ -9,18 +9,24 @@
   					<img ng-src="{{house.picUrl}}">
 				</a>
 	        </div>
-	        <div class="info-inner info-mid col-md-6" style="text-align: center;">
-	        	<h2><span class="text-success">区域：</span>{{house.district}}</h2>
+	        <div class="info-inner info-mid col-md-6" style="padding-left: 200px">
+	        	<label class="text-success text-left">区域: </label>
+	        	{{house.district}}区
 	        	<br />
-	        	<span class="text-success">小区</span>{{house.community}}
+	        	<label class="text-success text-left">小区: </label>
+	        	{{house.community}}
 	        	<br />
-	        	<span class="text-success">地址</span>{{house.address}}
+	        	<label class="text-success text-left">地址: </label>
+	        	{{house.address}}
 	        	<br />
-	        	<span class="text-success">楼层</span>{{house.floor}}
+	        	<label class="text-success text-left">楼层: </label>
+	        	{{house.floor}}楼
 	        	<br />
-	        	<span class="text-success">户型</span>{{house.houseType}}
+	        	<label class="text-success text-left">户型: </label>
+	        	{{house.houseType}}室
 	        	<br />
-	        	<span class="text-success">面积</span>{{house.area}}
+	        	<label class="text-success text-left">面积: </label>
+	        	{{house.area}}平方米
 	        </div>
 	        <div class="info-inner info-right col-md-3" style="margin-top: 50px">
 	        	<form>

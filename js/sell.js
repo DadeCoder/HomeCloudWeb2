@@ -97,6 +97,7 @@ sellApp.controller('sellOutCtrl',['$scope','$http','$state', '$sessionStorage', 
 
           //$window.localStorage["houseId"]=response.info;
           $sessionStorage.put("sellOutHouseId",response.info);
+          $sessionStorage.put("sellOrRent","sell");
 
           }).error(function(response){
            console.log("error");
@@ -177,6 +178,7 @@ sellApp.controller('rentOutCtrl',['$scope','$http','$state', '$sessionStorage', 
                console.log(response);
 
               $sessionStorage.put("sellOutHouseId",response.info);
+              $sessionStorage.put("sellOrRent","rent");
 
               }).error(function(response){
                console.log("error");
@@ -224,6 +226,7 @@ sellApp.controller('uploadCtrl',['$scope','$http','$state', '$sessionStorage', f
 
 
 	var houseId = $sessionStorage.get("sellOutHouseId");
+  var sellOrRent = $sessionStorage.get("sellOrRent");
 
 	function initFileInput(ctrlName) {      
        var control = $('#' + ctrlName);   
@@ -280,7 +283,14 @@ sellApp.controller('uploadCtrl',['$scope','$http','$state', '$sessionStorage', f
 
               setTimeout(go, 500);
               function go(){ 
-                $state.go('house', {}, { reload: true });
+                if (sellOrRent == 'sell') {
+                  $state.go('sellHouseView', {}, { reload: true });
+                }
+                else{
+                  $state.go('rentHouseView', {}, { reload: true });
+                }
+
+                
 
              } 
 
@@ -392,4 +402,211 @@ sellApp.controller('viewCtrl',['$scope','$http','$state', '$sessionStorage', fun
 }]);
 
 
+sellApp.controller('rentHouseViewCtrl',['$scope','$http','$state', '$sessionStorage', function($scope, $http, $state, $sessionStorage){
 
+  // active li
+  var info = document.getElementById("info");
+  var buy = document.getElementById("buy");
+  var sell = document.getElementById("sell");
+  var rent = document.getElementById("rent");
+  removeClass(info,"active");
+  removeClass(rent,"active");
+  removeClass(buy,"active");
+  addClass( sell,"active" ); 
+
+
+  var houseId = $sessionStorage.get("sellOutHouseId");
+
+  $http({
+       url:'http://localhost:8090/api/house/get/',
+       method: 'get',  
+       params:{
+    'houseId':houseId,
+     },
+       withCredentials: true
+      }).success(function(response){
+       console.log("success!");
+       console.log(response);
+       $scope.house = response;
+       $scope.picUrl = response.picUrl;
+      }).error(function(response){
+       console.log("error");
+       console.log(response);
+      });
+
+  $http({
+       url:'http://localhost:8090/api/house/isFocus/',
+       method: 'get',  
+       params:{
+            'houseId':houseId,
+      },
+       withCredentials: true
+      }).success(function(response){
+       console.log("success!");
+       console.log(response);
+       if (response == 'true') {
+            var pid = document.getElementById("focusBtn");
+            addClass( pid,"disabled" ); 
+       }
+      }).error(function(response){
+       console.log("error");
+      });
+
+      function hasClass( elements,cName ){ 
+    return !!elements.className.match( new RegExp( "(\\s|^)" + cName + "(\\s|$)") ); 
+    // ( \\s|^ ) 判断前面是否有空格 （\\s | $ ）判断后面是否有空格 两个感叹号为转换为布尔值 以方便做判断 
+  }; 
+
+  function addClass( elements,cName ){ 
+    if( !hasClass( elements,cName ) ){ 
+      elements.className += " " + cName; 
+    }; 
+  }; 
+
+  function removeClass( elements,cName ){ 
+    if( hasClass( elements,cName ) ){ 
+    elements.className = elements.className.replace( new RegExp( "(\\s|^)" + cName + "(\\s|$)" )," " );
+     // replace方法是替换 
+    }; 
+  }; 
+
+      $scope.focus = function(){
+            console.log(houseId);
+
+            $http({
+             url:'http://localhost:8090/api/house/focus/',
+             method: 'get',  
+             params:{
+                  'houseId':houseId,
+               },
+             withCredentials: true
+            }).success(function(response){
+             console.log("success!");
+             var pid = document.getElementById("focusBtn");
+            addClass( pid,"disabled" ); 
+            }).error(function(response){
+             console.log("error");
+            });
+
+      }
+
+       $scope._scrollTo = function(id){
+        var _id = document.getElementById(id);
+　　　　window.scrollTo(0,_id.offsetTop);
+
+        var introli = document.getElementById("introli");
+        var conli = document.getElementById("conli");
+        var recli = document.getElementById("recli");
+        removeClass(introli,"active");
+        removeClass(conli,"active");
+        removeClass(recli,"active");
+        addClass( _id,"active" ); 
+
+      }
+
+}]);
+
+
+sellApp.controller('sellHouseViewCtrl',['$scope','$http','$state', '$sessionStorage', function($scope, $http, $state, $sessionStorage){
+
+  // active li
+  var info = document.getElementById("info");
+  var buy = document.getElementById("buy");
+  var sell = document.getElementById("sell");
+  var rent = document.getElementById("rent");
+  removeClass(info,"active");
+  removeClass(rent,"active");
+  removeClass(buy,"active");
+  addClass( sell,"active" ); 
+
+
+  var houseId = $sessionStorage.get("sellOutHouseId");
+
+  $http({
+       url:'http://localhost:8090/api/house/get/',
+       method: 'get',  
+       params:{
+    'houseId':houseId,
+     },
+       withCredentials: true
+      }).success(function(response){
+       console.log("success!");
+       console.log(response);
+       $scope.house = response;
+       $scope.picUrl = response.picUrl;
+      }).error(function(response){
+       console.log("error");
+       console.log(response);
+      });
+
+  $http({
+       url:'http://localhost:8090/api/house/isFocus/',
+       method: 'get',  
+       params:{
+            'houseId':houseId,
+      },
+       withCredentials: true
+      }).success(function(response){
+       console.log("success!");
+       console.log(response);
+       if (response == 'true') {
+            var pid = document.getElementById("focusBtn");
+            addClass( pid,"disabled" ); 
+       }
+      }).error(function(response){
+       console.log("error");
+      });
+
+      function hasClass( elements,cName ){ 
+    return !!elements.className.match( new RegExp( "(\\s|^)" + cName + "(\\s|$)") ); 
+    // ( \\s|^ ) 判断前面是否有空格 （\\s | $ ）判断后面是否有空格 两个感叹号为转换为布尔值 以方便做判断 
+  }; 
+
+  function addClass( elements,cName ){ 
+    if( !hasClass( elements,cName ) ){ 
+      elements.className += " " + cName; 
+    }; 
+  }; 
+
+  function removeClass( elements,cName ){ 
+    if( hasClass( elements,cName ) ){ 
+    elements.className = elements.className.replace( new RegExp( "(\\s|^)" + cName + "(\\s|$)" )," " );
+     // replace方法是替换 
+    }; 
+  }; 
+
+      $scope.focus = function(){
+            console.log(houseId);
+
+            $http({
+             url:'http://localhost:8090/api/house/focus/',
+             method: 'get',  
+             params:{
+                  'houseId':houseId,
+               },
+             withCredentials: true
+            }).success(function(response){
+             console.log("success!");
+             var pid = document.getElementById("focusBtn");
+            addClass( pid,"disabled" ); 
+            }).error(function(response){
+             console.log("error");
+            });
+
+      }
+
+       $scope._scrollTo = function(id){
+        var _id = document.getElementById(id);
+　　　　window.scrollTo(0,_id.offsetTop);
+
+        var introli = document.getElementById("introli");
+        var conli = document.getElementById("conli");
+        var recli = document.getElementById("recli");
+        removeClass(introli,"active");
+        removeClass(conli,"active");
+        removeClass(recli,"active");
+        addClass( _id,"active" ); 
+
+      }
+
+}]);

@@ -168,6 +168,34 @@ indexApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
                 }
             }
         })
+      .state('rentHouseView', {
+            url: '/rentHouseView',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/rentHouseView.html'
+                },
+                'header@rentHouseView': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'footer@rentHouseView': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
+      .state('sellHouseView', {
+            url: '/sellHouseView',
+            views: { 
+                '': {
+                    templateUrl: 'tpls/sellHouseView.html'
+                },
+                'header@sellHouseView': {
+                    templateUrl: 'tpls/header.html'
+                },
+                'footer@sellHouseView': {
+                    templateUrl: 'tpls/footer.html'
+                }
+            }
+        })
       .state('info', {
             url: '/info',
             views: { 

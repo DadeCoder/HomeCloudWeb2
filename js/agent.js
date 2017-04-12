@@ -8,6 +8,9 @@ agentApp.controller('agentHeaderCtrl',['$scope','$http','$state','$sessionStorag
 
     };
 
+    
+    $scope.name=$sessionStorage.get('user').name;
+
 }]);
 
 
