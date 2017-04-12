@@ -1,4 +1,4 @@
-<div class="page-header" style="margin: 0">
+<!-- <div class="page-header" style="margin: 0">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1">
@@ -10,10 +10,61 @@
 		</div>
 	</div>
   
+</div> -->
+
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<div class="navbar navbar-static-top navbar-inverse" style="margin-bottom: 0">
+
+    <div class="container-fluid">
+        <div class="navbar-header" style="margin-left: 100px">
+           <a class="navbar-brand" ui-sref="index">HomePlus</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+                <li id="buy"><a ui-sref="index">返回首页</a></li>
+            </ul>
+        </div>
+  </div>
+  
 </div>
 
+<div class="jumbotron" style="margin-bottom: 0;height: 520px;background:url(../images/login.jpg) center center;background-size: cover;
+-webkit-background-size: cover;   
+-moz-background-size: cover;   
+-o-background-size: cover;">
+  <div class="container" ng-controller="agentLoginCtrl">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 form-box">
+        <div class="form-top">
+          <div class="form-top-left">
+            <h3>经纪人登录</h3>
+              <p>请输入您的手机号和密码：</p>
+          </div>
+          <div class="form-top-right">
+            <i class="fa fa-key"></i>
+          </div>
+          </div>
+          <div class="form-bottom">
+            <form role="form" ng-submit="login()" class="login-form">
+              <div class="form-group">
+                <label class="sr-only" for="form-username">手机号码</label>
+                  <input type="text" name="form-username" placeholder="手机号码..." class="form-username form-control" id="form-username" ng-model="credentials.username">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="form-password">密码</label>
+                  <input type="password" name="form-password" placeholder="密码..." class="form-password form-control" id="form-password" ng-model="credentials.password">
+                </div>
+                <button type="submit" class="btn">登录!</button>
+            </form>
+          </div>
+      </div>
+  </div>
 
-<div class="jumbotron" style="margin-bottom: 0;height: 520px">
+
+  </div>
+</div>
+
+<!-- <div class="jumbotron" style="margin-bottom: 0;height: 520px">
   <div class="container" ng-controller="agentLoginCtrl">
 	<div class="row myCenter" style="margin-bottom: 180px">  
     <div class="col-xs-6 col-md-4 col-center-block">  
@@ -29,7 +80,7 @@
     </div>  
   </div>    	
   </div>
-</div>
+</div> -->
 
 <footer>
   <div class="container text-center">

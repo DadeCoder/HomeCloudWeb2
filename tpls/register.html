@@ -1,23 +1,63 @@
-<div class="page-header" style="margin: 0">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-                <h2>HomePlus</h2>
-            </div>
-            <div class="col-md-2 pull-right">
-                <h2><small><a ui-sref="index">返回首页</a></small></h2>
-            </div>
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<div class="navbar navbar-static-top navbar-inverse" style="margin-bottom: 0">
+
+    <div class="container-fluid">
+        <div class="navbar-header" style="margin-left: 100px">
+           <a class="navbar-brand" ui-sref="index">HomePlus</a>
         </div>
-    </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+                <li id="buy"><a ui-sref="index">返回首页</a></li>
+            </ul>
+        </div>
+  </div>
   
 </div>
 
-<div class="jumbotron" style="margin-bottom: 0">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-6 col-md-4 col-center-block" ng-controller="RegiCtrl">
+<div class="jumbotron" style="margin-bottom: 0;height: 600px;background:url(../images/login.jpg) center center;background-size: cover;
+-webkit-background-size: cover;   
+-moz-background-size: cover;   
+-o-background-size: cover;">
+    <div class="container" ng-controller="RegiCtrl">
+        <!-- <div class="row"> -->
+            <!-- <div class="col-xs-6 col-md-4 col-center-block" ng-controller="RegiCtrl"> -->
 
-                <form id="defaultForm" role="form" class="form-signin">
+            <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 form-box">
+        <div class="form-top">
+          <div class="form-top-left">
+            <h3>用户注册</h3>
+              <p>请输入您的个人信息：</p>
+          </div>
+          <div class="form-top-right">
+            <i class="fa fa-key"></i>
+          </div>
+          </div>
+          <div class="form-bottom">
+            <form role="form" class="login-form form-signin" id="defaultForm">
+              <div class="form-group">
+                <label class="sr-only" for="form-username">用户名</label>
+                  <input type="text" name="username" placeholder="用户名..." class="form-username form-control" id="username" ng-model="user.username">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="form-password">密码</label>
+                  <input type="password" name="password" placeholder="密码..." class="password form-control" id="form-password" ng-model="user.password">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="form-password">确认密码</label>
+                  <input type="password" name="repassword" placeholder="确认密码..." class="form-password form-control" id="form-password">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="form-password">手机号码</label>
+                  <input type="text" name="phone" placeholder="手机号码..." class="form-control" id="phone" ng-model="user.phoneNumber">
+                </div>
+                <button type="button" class="btn" ng-click="regi()">注册!</button>
+            </form>
+          <!-- </div> -->
+      <!-- </div> -->
+  </div>
+
+                <!-- <form id="defaultForm" role="form" class="form-signin">
                     <h2>
                         创建账户
                         <div class="pull-right">
@@ -53,7 +93,7 @@
                         </button>
                     </div>
             
-                </form>
+                </form> -->
 
             </div>
         </div>

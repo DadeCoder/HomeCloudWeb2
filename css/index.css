@@ -107,3 +107,47 @@
     padding-left: 50px;
     color: #fff;
 }
+
+/*lianjia*/
+
+.basisyle{
+    display: block;
+    width: 372px;
+    margin: 0 auto;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+}
+
+.inputText{
+    text-indent: 19px;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+}
+
+
+.topSpecial{
+    border-top: 1px solid #e4e4e4;
+    border-radius: 3px 3px 0 0;
+}
+
+.btnStyle{
+    text-align: center;
+    background: #39ac6a;
+    background: -ms-linear-gradient(top, #00ae66 ,  #00bf70);
+    background:-moz-linear-gradient(top,#00ae66,#00bf70);
+    background: -webkit-linear-gradient(top, #00ae66 , #00bf70); 
+    background: -o-linear-gradient(top, #00ae66 , #00bf70); 
+    font-size: 18px;
+    color: #fff; 
+    cursor: pointer;
+    margin: 25px auto;
+    border-radius: 3px;
+}
+
+
+
+
+
