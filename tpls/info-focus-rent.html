@@ -13,11 +13,11 @@
 		<div class="row well col-md-5" style="height: 220px;padding: 0 0">
 			<img ng-src="{{house.picUrl}}" style="height: 180px;margin-left: 100px;margin-top: 20px">		</div>
 		<div class="row well col-md-4" style="height: 220px;font-size: 20px;text-align: center;">
-			<span class="text-success">区域：</span>{{house.district}}<br />
+			<span class="text-success">区域：</span>{{house.district}}区<br />
 			<span class="text-success">小区：</span>{{house.community}}<br />
 			<span class="text-success">地址：</span>{{house.address}}<br />
-			<span class="text-success">楼层：</span>{{house.floor}}<br />	
-			<span class="text-success">租金：</span>{{house.rentPrice}}<br />
+			<span class="text-success">楼层：</span>{{house.floor}}楼<br />	
+			<span class="text-success">租金：</span>{{house.rentPrice}}元/月<br />
 			<button class="btn btn-success btn-block" ng-click="getRentHouse(house.id)">前往</button>
 		</div>
 	</div>

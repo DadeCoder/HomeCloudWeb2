@@ -1,20 +1,38 @@
-<div class="page-header" style="margin: 0" ng-controller="logOutCtrl">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1">
-                    <h2>HomePlus</h2>
-                </div>
-                <div class="col-md-3 pull-right">
-                    <h2><small>
-                        <a ui-sref="index">返回首页</a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a ui-sref="index" ng-click="logOut()">退出登录</a>
-                    </small></h2>
-                </div>
+<!-- <div class="page-header" style="margin: 0" ng-controller="logOutCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <h2>HomePlus</h2>
+            </div>
+            <div class="col-md-3 pull-right">
+                <h2><small>
+                    <a ui-sref="index">返回首页</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a ui-sref="index" ng-click="logOut()">退出登录</a>
+                </small></h2>
             </div>
         </div>
-  
     </div>
+</div> -->
+
+
+<div class="container-fluid" ng-controller="logOutCtrl">
+    <div class="row">
+        <nav class="navbar navbar-static-top navbar-inverse" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header" style="margin-left: 100px">
+                     <a class="navbar-brand" ui-sref="index">HomePlus</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: 100px">
+                        <li id="buy"><a ui-sref="index">返回首页</a></li>
+                        <li id="sell"><a ui-sref="index" ng-click="logOut()">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
 
 
     <div class="container" id="crop-avatar" ng-controller="imgCtrl">
@@ -91,6 +109,12 @@
             <!-- Loading state -->
             <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
         </div>
+
+<footer style="margin-top: 180px">
+    <div class="container text-center">
+        <p>Designed by <a ui-sref="index"><span>Dade</span></a></p>
+    </div>
+</footer>
 
         <script src="lib/images/cropper.min.js"></script>
         <script src="lib/images/main.js"></script>

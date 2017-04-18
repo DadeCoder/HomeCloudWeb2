@@ -18,11 +18,11 @@
 		</div>
 		<div class="row well col-md-4" style="height: 250px;font-size: 20px;text-align: center;">
 			<span class="text-danger">{{house.typeInfo}}</span><br />
-			<span class="text-success">区域：</span>{{house.district}}<br />
+			<span class="text-success">区域：</span>{{house.district}}区<br />
 			<span class="text-success">小区：</span>{{house.community}}<br />
 			<span class="text-success">地址：</span>{{house.address}}<br />
-			<span class="text-success">楼层：</span>{{house.floor}}<br />	
-			<span class="text-success" ng-bind="house.priceInfo"></span><br />
+			<span class="text-success">楼层：</span>{{house.floor}}楼<br />	
+			<span class="text-success">价格：</span>{{house.priceInfo}}<br />
 			<button class="btn btn-success btn-block" ng-click="getRentHouse(house.id, house.onlineType)">前往</button>
 		</div>
 	</div>
