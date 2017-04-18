@@ -38,6 +38,7 @@
 					<a id="p6" ng-click="gotCdtP($event)" value="7000-10000" class="chose">7000-10000元</a>
 					<a id="p7" ng-click="gotCdtP($event)" value="10000-20000" class="chose">10000-20000元</a>
 					<a id="p8" ng-click="gotCdtP($event)" value="20000" class="chose">20000元以上</a>
+					(单位：每月)
 				</span>
 			</div>
 			<div class="row panel-body" style="padding: 10px">
@@ -99,7 +100,7 @@
 			        </div>
 			        <div class="info-inner info-mid col-md-6">
 			        	<h3><a ng-click="getRentHouse(house.id)">{{house.community}}</a></h3>
-			        	<b>{{house.address}} {{house.area}}平方米 {{house.houseType}}</b>
+			        	<b>{{house.address}} {{house.area}}平方米 {{house.houseType}}室</b>
 			        	<br>
 			        	<br>
 			        	{{house.floor}}楼
