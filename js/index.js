@@ -664,6 +664,56 @@ indexApp.controller('topCtrl', function($rootScope, $http, $location, $scope, $s
       }).error(function(response){
        console.log("getInfo error");
       });
+
+      toastr.options = {
+        "closeButton": false, //是否显示关闭按钮
+        "debug": false, //是否使用debug模式
+        "positionClass": "toast-top-center",//弹出窗的位置
+        "showDuration": "300",//显示的动画时间
+        "hideDuration": "1000",//消失的动画时间
+        "timeOut": "2000", //展现时间
+        "extendedTimeOut": "1000",//加长展示时间
+        "showEasing": "swing",//显示时的动画缓冲方式
+        "hideEasing": "linear",//消失时的动画缓冲方式
+        "showMethod": "fadeIn",//显示时的动画方式
+        "hideMethod": "fadeOut" //消失时的动画方式
+        };
+
+        $scope.mes = {
+            name:"",
+            phone:"",
+            message:""
+        }
+
+      $scope.putMessage = function(){
+
+        var data = {
+            name : $scope.mes.name,
+            phone : $scope.mes.phone,
+            message : $scope.mes.message
+        }
+
+        console.log("data:", data);
+
+        $http({
+         url:'http://localhost:8090/api/general/message/putMes',
+         method: 'Post',  
+         data:data,
+         withCredentials: true
+        }).success(function(response){
+         toastr.success("提交成功");
+        }).error(function(response){
+         toastr.error("提交失败");
+        });
+
+        $scope.mes = {
+            name:"",
+            phone:"",
+            message:""
+        }
+
+      }
+
 });
 
 
@@ -681,6 +731,6 @@ indexApp.controller('headerCtrl', function($rootScope, $http, $location, $scope,
             $scope.username = user.name;
             $scope.auth = true;
       }
-
-
 });
+
+

@@ -25,6 +25,37 @@ agentApp.controller('agentIndexCtrl',['$scope','$http','$state','$sessionStorage
 
     // console.log()
 
+    $http({
+       url:'http://localhost:8090/api/general/message/getMes',
+       method: 'get', 
+       // params:{
+       //            'userId':houseId,
+       //         },
+      }).success(function(response){
+       console.log("getInfo success!", response);
+       $scope.list = response;
+      }).error(function(response){
+       console.log("getInfo error");
+      });
+
+
+      $scope.deleteMes = function(id){
+        console.log(id);
+        $http({
+           url:'http://localhost:8090/api/general/message/deleteMes',
+           method: 'get', 
+           params:{
+                      'id':id,
+                   },
+          }).success(function(response){
+           console.log("getInfo success!", response);
+           $scope.list = response;
+          }).error(function(response){
+           console.log("getInfo error");
+          });
+      }
+
+
 }]);
 
 
