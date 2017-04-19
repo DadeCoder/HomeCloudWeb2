@@ -195,9 +195,11 @@ buyApp.controller('cdtCtrl',['$scope','$http','$state', '$sessionStorage', funct
 		}; 
 	}; 
 
-	$scope.getSellHouse = function(houseId){
-		console.log(houseId);
+	$scope.getSellHouse = function(houseId,self){
+		console.log("getSellHouseId", houseId);
+		console.log("getSellHouseSelf", self);
 		$sessionStorage.put("buyHouseId",houseId);
+		$sessionStorage.put("buySelf",self);
 		//$window.localStorage["buyHouseId"]=houseId;
 		// $window.location.href='../buyHouse.html';
 		setTimeout(go, 500);
@@ -433,12 +435,14 @@ buyApp.controller('rentCtrl',['$scope','$http','$state', '$sessionStorage', func
 		}; 
 	}; 
 
-	$scope.getRentHouse = function(houseId){
-		console.log(houseId);
+	$scope.getRentHouse = function(houseId,houseSelf){
+		console.log("houseId",houseId);
+		console.log("houseSelf",houseSelf);
 		//$window.localStorage["rentHouseId"]=houseId;
 		//$window.location.href='../rentHouse.html';
 
 		$sessionStorage.put("rentHouseId",houseId);
+		$sessionStorage.put("houseSelf",houseSelf);
 		setTimeout(go, 500);
 		function go(){ 
 			$state.go('rentHouse', {}, { reload: true });
@@ -523,11 +527,26 @@ buyApp.controller('buyHouseCtrl',['$scope','$http','$state', '$sessionStorage', 
 
 
 	var houseId = $sessionStorage.get("buyHouseId");
+	var buySelf = $sessionStorage.get("buySelf");
+
+	if (buySelf == true) {
+		var focusBtn = document.getElementById("focusBtn");
+        addClass( focusBtn,"disabled" );
+
+        var orderBtn = document.getElementById("orderBtn");
+        addClass( orderBtn,"disabled" );
+
+        var buyBtn = document.getElementById("buyBtn");
+        addClass( buyBtn,"disabled" );
+
+
+	}
+
 	// var picUrl = $window.localStorage["picUrl"];
 
 	// $scope.picUrl = picUrl;
 
-	console.log(houseId);
+	console.log("houseId", houseId);
 
 
 	$http({
@@ -706,11 +725,26 @@ buyApp.controller('rentHouseCtrl',['$scope','$http','$state', '$sessionStorage',
 
 
 	var houseId = $sessionStorage.get("rentHouseId");
+	var houseSelf = $sessionStorage.get("houseSelf");
 	// var picUrl = $window.localStorage["picUrl"];
 
 	// $scope.picUrl = picUrl;
 
-	console.log(houseId);
+	console.log("rentHouseId", houseId);
+	console.log("houseSelf", houseSelf);
+
+	if (houseSelf == true) {
+		var focusBtn = document.getElementById("focusBtn");
+        addClass( focusBtn,"disabled" );
+
+        var orderBtn = document.getElementById("orderBtn");
+        addClass( orderBtn,"disabled" );
+
+        var rentBtn = document.getElementById("rentBtn");
+        addClass( rentBtn,"disabled" );
+
+
+	}
 
 
 	$http({

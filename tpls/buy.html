@@ -91,22 +91,28 @@
 		    <div ng-repeat="house in hlist">
 			    <div class="panel-body info">
 			        <div class="info-inner info-left col-md-3">
-			        	<a ng-click="getSellHouse(house.id)" class="thumbnail">
+			        	<a ng-click="getSellHouse(house.id,house.self)" class="thumbnail">
 	      					<!-- <img src="images/demo/portfolio-1.jpg"> -->
 	      					<img ng-src="{{house.picUrl}}">
 	    				</a>
 			        </div>
 			        <div class="info-inner info-mid col-md-6">
-			        	<h3><a ng-click="getSellHouse(house.id)">{{house.community}}</a></h3>
+			        	<h3>
+			        		<a ng-click="getSellHouse(house.id,house.self)">{{house.community}}
+			        		</a>
+			        	</h3>
 			        	<b>{{house.address}} {{house.area}}平方米 {{house.houseType}}室</b>
 			        	<br>
 			        	<br>
 			        	{{house.floor}}楼
+			        	<br>
+			        	
 			        </div>
 			        <div class="info-inner info-right col-md-3">
 			        	<h2 class="text-danger">
 			        		{{house.sellPrice}}万元
-			        	</h2>
+			        	</h2>			 
+			        	<h4 class="text-danger" ng-show="house.self">本人出售</h4>
 			        	<span>
 			        		{{house.date}}
 			        	</span>

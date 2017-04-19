@@ -31,7 +31,7 @@ loginApp.controller('loginCtrl',['$scope','$http','$state','$sessionStorage', fu
 				
 			})
 			.error(function(response) {
-				alert("Wrong account or password"); 
+				alert("账号或密码错误，请您重新登录"); 
 			});
 
 	};

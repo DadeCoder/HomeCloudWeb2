@@ -270,6 +270,7 @@ infoApp.controller('focusSellCtrl',['$scope','$http','$state','$sessionStorage',
         //$window.localStorage["rentHouseId"]=houseId;
         //$window.location.href='../buyHouse.html';
         $sessionStorage.put("buyHouseId", houseId);
+        $sessionStorage.put("buySelf",true);
             setTimeout(go, 500);
             function go(){ 
                 $state.go('buyHouse', {}, { reload: true });
@@ -300,6 +301,7 @@ infoApp.controller('focusRentOutCtrl',['$scope','$http','$state','$sessionStorag
         //$window.localStorage["rentHouseId"]=houseId;
         //$window.location.href='../buyHouse.html';
         $sessionStorage.put("rentHouseId", houseId);
+        $sessionStorage.put("houseSelf",true);
             setTimeout(go, 500);
             function go(){ 
                 $state.go('rentHouse', {}, { reload: true });
