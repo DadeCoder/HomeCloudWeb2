@@ -19,7 +19,8 @@
 			<span class="text-success">地址：</span>{{house.address}}<br />
 			<span class="text-success">楼层：</span>{{house.floor}}楼<br />	
 			<span class="text-success">价格：</span>{{house.sellPrice}}万元<br />
-			<button class="btn btn-success btn-block" ng-click="getSellHouse(house.id)">前往</button>
+			<button class="btn btn-success" ng-click="getSellHouse(house.id)">前往</button>
+			<button class="btn btn-danger" ng-click="cancel(house.id)">取消关注</button>
 		</div>
 	</div>
 </div>

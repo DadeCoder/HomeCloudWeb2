@@ -195,6 +195,24 @@ infoApp.controller('focusBuyCtrl',['$scope','$http','$state','$sessionStorage', 
 			} 
     }
 
+    $scope.cancel = function(houseId){
+        console.log("cancel ID:", houseId);
+        $http({
+             url:'http://localhost:8090/api/house/cancel_focus/',
+             method: 'get',  
+             params:{
+                  'houseId':houseId,
+               },
+             withCredentials: true
+            }).success(function(response){
+             console.log("cancel_focus success!");
+             $state.go('info-focus-buy', {}, { reload: true });
+            }).error(function(response){
+             console.log("cancel_focus error");
+            });
+        
+    }
+
 }]);
 
 infoApp.controller('focusRentCtrl',['$scope','$http','$state','$sessionStorage', function($scope, $http, $state, $sessionStorage){
