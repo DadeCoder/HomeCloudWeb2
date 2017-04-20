@@ -28,15 +28,16 @@
 	        	<label class="text-success text-left">面积: </label>
 	        	{{house.area}}平方米
 	        </div>
-	        <div class="info-inner info-right col-md-3" style="margin-top: 50px">
+	        <div class="info-inner info-right col-md-3">
 	        	<form>
-					<div class="form-group">
-<!-- 						<button class="btn btn-danger btn-block" id="stopBtn" ng-click="delete(house.id)">删除用户</button> -->
-						 <span class="input-group-addon">带看时间</span>
-  						<input type="text" id="checkDate" class="form-control" ng-model="house.checkDate">
+					<div class="input-group date" style="padding-bottom: 220px">
+						<input type="text" id="checkDate" class="form-control bootstrap-timepicker" ng-model="house.checkDate" ng-init="initTime();">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar">
+                    		</span>
+						</span>
 					</div>
-					<div class="form-group">
-						<!-- <input type="number" ng-model="new.price"> -->
+					<div class="input-group pull-right">
 						<button class="btn btn-success btn-block" ng-click="setDate(house)">确定提交</button>
 					</div>
 				</form>
@@ -45,6 +46,21 @@
 	    </div>
     </div>
 
+<!-- <div class="row">  
+    <div class='col-sm-6'>  
+        <div class="form-group">  
+            <label>选择日期：</label>  
+            <div class='input-group date datetimepicker2' id=''>  
+                <input type='text' class="form-control" />  
+                <span class="input-group-addon">  
+                    <span class="glyphicon glyphicon-calendar"></span>  
+                </span>  
+            </div>  
+        </div>  
+    </div>
+</div>  -->
+
+
 	<div class="row">
 		<nav style="text-align: center">
 			<pagination total-items="bigTotalItems" ng-change="showItems()" ng-model="bigCurrentPage" items-per-page="itemSize" max-size="maxSize" force-ellipses="true" class="pagination-sm" rotate="false" boundary-links="true" num-pages="numPages"></pagination>
@@ -52,4 +68,19 @@
 	</div>
 		
 
-</div>
+</div> 
+
+
+
+<!-- <script type="text/javascript">
+
+    	$('.datetimepicker2').datetimepicker({  
+        	format: 'YYYY-MM-DD',  
+        	locale: moment.locale('zh-cn')  
+    	});
+    	// $('.dtp').datetimepicker({  
+     //    	format: 'YYYY-MM-DD',  
+     //    	locale: moment.locale('zh-cn')  
+    	// });
+
+</script> -->

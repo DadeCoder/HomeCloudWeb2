@@ -439,12 +439,28 @@ agentApp.controller('agentRentRecordCtrl',['$scope','$http','$state','$sessionSt
         "hideMethod": "fadeOut" //消失时的动画方式
         };
 
+        $scope.initTime = function () {
+            $('.bootstrap-timepicker').datetimepicker({  
+                format: 'YYYY-MM-DD',  
+                locale: moment.locale('zh-cn')
+            });
+            $(".bootstrap-timepicker").on("dp.change", function() {
+
+            $scope.house = {
+                checkDate:$("#checkDate").val()
+            }
+            console.log("selected date is " + $scope.house.checkDate);
+
+        });
+
+    };  
+
         
     var data = [];
 
     $scope.maxSize = 3; //可点击的页码个数
     $scope.numPages = data.length; //总页码数
-    $scope.itemSize = 3; //每页条目数
+    $scope.itemSize = 1; //每页条目数
     $scope.bigTotalItems = data.length;
 
     $scope.hno = data.length;
@@ -478,10 +494,14 @@ agentApp.controller('agentRentRecordCtrl',['$scope','$http','$state','$sessionSt
      console.log("error");
     });
 
-    $scope.setDate = function(houseId){
-        console.log(houseId);
+    $scope.setDate = function(house){
+        
+        var houseId = house.id;
+        console.log("houseId",houseId);
         // console.log($scope.h.date);
-        var result1 = $("#calendar1").val();  
+        // var result1 = $("#calendar1").val();
+        var result1 = $scope.house.checkDate;  
+        console.log("date: ",result1);  
         // console.log(result1);
         $http({
          url:'http://localhost:8090/api/agent/setDate/',
@@ -520,11 +540,27 @@ agentApp.controller('agentSellRecordCtrl',['$scope','$http','$state','$sessionSt
         "hideMethod": "fadeOut" //消失时的动画方式
         };
 
-    	var data = [];
+        $scope.initTime = function () {
+            $('.bootstrap-timepicker').datetimepicker({  
+                format: 'YYYY-MM-DD',  
+                locale: moment.locale('zh-cn')
+            });
+            $(".bootstrap-timepicker").on("dp.change", function() {
+
+            $scope.house = {
+                checkDate:$("#checkDate").val()
+            }
+            console.log("selected date is " + $scope.house.checkDate);
+
+        });
+
+    };  
+
+    var data = [];
 
     $scope.maxSize = 3; //可点击的页码个数
     $scope.numPages = data.length; //总页码数
-    $scope.itemSize = 3; //每页条目数
+    $scope.itemSize = 1; //每页条目数
     $scope.bigTotalItems = data.length;
 
     $scope.hno = data.length;
@@ -563,8 +599,8 @@ agentApp.controller('agentSellRecordCtrl',['$scope','$http','$state','$sessionSt
         var houseId = house.id;
         // console.log($scope.h.date);
         // var result1 = $("#checkDate").val(); 
-        var result1 = house.checkDate;  
-        console.log("date: ",house.checkDate);
+        var result1 = $scope.house.checkDate;  
+        console.log("date: ",result1);
         $http({
          url:'http://localhost:8090/api/agent/setDate/',
          method: 'get',
